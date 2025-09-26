@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Quadratic Formula Confusion",
+    "description": "Steps to solve x^2 - 5x + 6 using the quadratic formula are unclear",
+    "priority": "High",
+    "status": "In-Progress",
+    "createdAt": "2025-09-25"
+  },
+  {
+    "id": 2,
+    "title": "Integration of sin(x^2)",
+    "description": "Integration of sin(x^2) is not straightforward; seeking step-by-step guidance",
+    "priority": "Medium",
+    "status": "Open",
+    "createdAt": "2025-09-24"
+  },
+  {
+    "id": 3,
+    "title": "Exponential Derivative Issue",
+    "description": "Derivative of e^(x^2) is giving unexpected results",
+    "priority": "High",
+    "status": "Open",
+    "createdAt": "2025-09-23"
+  },
+  {
+    "id": 4,
+    "title": "Matrix Multiplication Mistake",
+    "description": "Multiplying 3x3 matrices manually results in wrong values",
+    "priority": "Medium",
+    "status": "Open",
+    "createdAt": "2025-09-22"
+  },
+  {
+    "id": 5,
+    "title": "Probability of Dice Sum",
+    "description": "Difficulty calculating probability of rolling a sum of 7 with 2 dice",
+    "priority": "Low",
+    "status": "In-Progress",
+    "createdAt": "2025-09-21"
+  },
+  {
+    "id": 6,
+    "title": "Limit Evaluation Error",
+    "description": "Evaluating lim (sin x)/x as x→0 gives incorrect output",
+    "priority": "High",
+    "status": "In-Progress",
+    "createdAt": "2025-09-20"
+  },
+  {
+    "id": 7,
+    "title": "Series Convergence Doubt",
+    "description": "Uncertainty whether the series sum 1/n^2 converges",
+    "priority": "Medium",
+    "status": "Open",
+    "createdAt": "2025-09-19"
+  },
+  {
+    "id": 8,
+    "title": "Vector Magnitude Calculation",
+    "description": "Finding magnitude of vector <3, 4, 12> is unclear",
+    "priority": "Low",
+    "status": "In-Progress",
+    "createdAt": "2025-09-18"
+  },
+  {
+    "id": 9,
+    "title": "Trigonometry Identity Issue",
+    "description": "Understanding why sin^2(x) + cos^2(x) = 1 is confusing",
+    "priority": "Medium",
+    "status": "Open",
+    "createdAt": "2025-09-17"
+  },
+  {
+    "id": 10,
+    "title": "Algebra Simplification Problem",
+    "description": "Simplifying (x^2 -1)/(x-1) manually leads to mistakes",
+    "priority": "High",
+    "status": "In-Progress",
+    "createdAt": "2025-09-16"
+  }
+]
