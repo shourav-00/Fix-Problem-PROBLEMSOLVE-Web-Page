@@ -13,14 +13,15 @@ const TaskStatus = ({rightArea,resolve,setResolve,InProgress,setInProgress,PassF
 
     }
 
-    const handleresolve=()=>{
+    const handleresolve=(dd)=>{
     
         setResolve(resolve+1);
         if(InProgress==0){
             return;
         }
         setInProgress(InProgress-1);
-        toast.success("task has been completed"); 
+        toast.success("task has been completed");
+        PassFunction(dd); 
 
         
        
@@ -41,9 +42,10 @@ const TaskStatus = ({rightArea,resolve,setResolve,InProgress,setInProgress,PassF
               <h2 className='mb-3 font-bold'>{displayData.title}</h2>
               <button
                 onClick={() => {
-                  handleresolve();
-                  PassFunction(displayData);
+                  handleresolve(displayData);
+                  
                   displayData={displayData};
+                  
                 }}
                 className='btn btn-success rounded-2xl text-white'
               >

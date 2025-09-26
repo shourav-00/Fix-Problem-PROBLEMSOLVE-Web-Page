@@ -1,4 +1,4 @@
-import { Suspense, useState} from 'react';
+import { Suspense, useState,  useEffect} from 'react';
 import './App.css'
 import Customers from './Component/Customer-Component/Customers';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -18,45 +18,47 @@ const JsonData=fetch('/public/JsonData.json')
 
 function App() {
   
-  
+   useEffect(() => {
+    fetch('/public/JsonData.json')
+      .then(res => res.json())
+      .then(data => setAllCard(data));
+  }, []);
+
+  // Callback to receive data from child
+  const collectSingleData = (data) => {
+    setSelectedCards(prev => [...prev, data]);
+    console.log("Received from Customer:", data);
+  };
   const[InProgress,setInProgress]=useState(0);
-  //console.log(InProgress);
+  const [alldata,setAlldata]=useState([])
   const [allCard,setAllCard]=useState([])
   const [rightArea,setRightArea]=useState([]);
   const [resolve,setResolve]=useState(0);
   const [taskDone,setTaskDone]=useState([]);
+  console.log(allCard);
+  
+  
   // const [SysStatus,setSysStatus]=useState('');
   //console.log(rightArea);
    
-  
-
-  const RemoveCard=(card)=>{
-      console.log(card);
-     // const removeSingleCard=allCard.filter(data=>data.id!=card.id);
-      //console.log(removeSingleCard);
-      setAllCard(prevAllCard => prevAllCard.filter(data => data.id !== card.id));
-      // setAllCard(removeSingleCard);
-
-   
-}
-
   
   const PassFunction=(RData)=>{
     //console.log(RData);
     const uidata=rightArea.filter((task=>task.id!==RData.id));
     //console.log(uidata);
     setRightArea(uidata);
-    
     const confirmationTable=[...taskDone,RData];
     //console.log(confirmationTable);
     setTaskDone(confirmationTable);
 
     
+  // remove from left side
+  //setAllCard(prevAllCard => prevAllCard.filter(card => card.id !== RData.id));
+  const newCARD=allCard.filter(data=>data.id!==RData.id);
+  setAllCard(newCARD);
 
-
-    
-
-
+  //console.log(newCARD);
+  //setAllCard(newCARD);
     
    
   }
@@ -88,13 +90,13 @@ function App() {
         <span class="loading loading-ball loading-xl"></span>
       </div></>
     }>
-    <Customers JsonData={JsonData} InProgress={InProgress} setInProgress={setInProgress} setAllCard={setAllCard} allCard={allCard}
-    rightArea={rightArea} setRightArea={setRightArea}  RemoveCard={ RemoveCard} ></Customers>
+    <Customers JsonData={JsonData} InProgress={InProgress} setInProgress={setInProgress} setAllCard={setAllCard} allCard={allCard} alldata={alldata} setAlldata={setAlldata}
+    rightArea={rightArea} setRightArea={setRightArea} collectSingleData={collectSingleData}></Customers>
     </Suspense>  
         
       </div>
       <div className='grid col-span-1 mx-2 px-2 self-start'>
-          <TaskStatus rightArea={rightArea} resolve={resolve} setResolve={setResolve} InProgress={InProgress} setInProgress={setInProgress} PassFunction={PassFunction} taskDone={taskDone} setTaskDone={setTaskDone} ></TaskStatus>
+          <TaskStatus rightArea={rightArea} resolve={resolve} setResolve={setResolve} InProgress={InProgress} setInProgress={setInProgress} PassFunction={PassFunction} taskDone={taskDone} setTaskDone={setTaskDone}></TaskStatus>
       </div>
     </div>
     </section>

@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 
 
-const Customer = ({singleData,InProgress,setInProgress,rightArea,setRightArea, RemoveCard,allCard,setAllCard}) => {
+const Customer = ({singleData,InProgress,setInProgress,rightArea,setRightArea}) => {
     //console.log(rightArea);
     const [click,setClick]=useState(true);
     const [SysStatus,setSysStatus]=useState(false);
@@ -23,8 +23,10 @@ const Customer = ({singleData,InProgress,setInProgress,rightArea,setRightArea, R
         const spreadArray=[...rightArea,singleData];
         setRightArea(spreadArray);
         toast.success('In Progress');
-        RemoveCard(singleData);
+     
         setSysStatus(true); 
+
+        
       
           
 
