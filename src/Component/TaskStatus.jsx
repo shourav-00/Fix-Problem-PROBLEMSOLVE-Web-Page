@@ -1,5 +1,7 @@
 //import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+import Swal from "sweetalert2";
+
 
 
 
@@ -43,9 +45,15 @@ const TaskStatus = ({rightArea,resolve,setResolve,InProgress,setInProgress,PassF
               <button
                 onClick={() => {
                   handleresolve(displayData);
-                  alert('Task has Completed')
-                  displayData={displayData};
                   
+                  displayData={displayData};
+                 Swal.fire({
+                  title: 'Completed ',
+                  text: `Task has been completed.`,
+                  icon: 'success',
+                  timer: 1500,
+                  showConfirmButton: false
+    });
                 }}
                 className='btn btn-success rounded-2xl text-white'
               >

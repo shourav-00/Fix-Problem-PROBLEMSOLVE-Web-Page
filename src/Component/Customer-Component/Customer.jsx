@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { toast } from 'react-toastify';
+//import { toast } from 'react-toastify';
+import Swal from "sweetalert2";
+
 
 
 
@@ -25,7 +27,14 @@ const Customer = ({singleData,InProgress,setInProgress,rightArea,setRightArea,})
         const spreadArray=[...rightArea,singleData];
         setRightArea(spreadArray);
        
-       toast('hi');
+       //toast('hi');
+        Swal.fire({
+        title: 'Task Started!',
+        text: `You started working on "${singleData.title}"`,
+        icon: 'success',
+        timer: 1500,
+        showConfirmButton: false
+    });
         setSysStatus(true);
         
 
