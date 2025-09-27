@@ -3,7 +3,9 @@ import { toast } from 'react-toastify';
 
 
 
-const Customer = ({singleData,InProgress,setInProgress,rightArea,setRightArea}) => {
+
+
+const Customer = ({singleData,InProgress,setInProgress,rightArea,setRightArea,}) => {
     //console.log(rightArea);
     const [click,setClick]=useState(true);
     const [SysStatus,setSysStatus]=useState(false);
@@ -14,17 +16,18 @@ const Customer = ({singleData,InProgress,setInProgress,rightArea,setRightArea}) 
 
     const Cliclable=()=>{
         //setAllCard(singleData) ; 
+         
+        if(!click) return;
         setClick(false);
-        if(!click){
-            return;
-        }
+       
         
         setInProgress(InProgress+1);
         const spreadArray=[...rightArea,singleData];
         setRightArea(spreadArray);
-        toast.success('In Progress');
-     
-        setSysStatus(true); 
+       
+       toast('hi');
+        setSysStatus(true);
+        
 
         
       
@@ -35,10 +38,10 @@ const Customer = ({singleData,InProgress,setInProgress,rightArea,setRightArea}) 
     return (
         <>
         
-            <div  onClick={()=>Cliclable()} className='max-w-6xl mx-auto bg-white rounded-2xl p-5'>
+            <div  onClick={()=>Cliclable()} className='max-w-6xl mx-auto  rounded-2xl p-5 bg-white '>
 
             <div className='flex justify-between items-center '>
-            <h2 className='font-bold my-5'>
+            <h2 className='font-bold my-5 '>
                {singleData.title}</h2>
             
             {
@@ -52,7 +55,10 @@ const Customer = ({singleData,InProgress,setInProgress,rightArea,setRightArea}) 
                     <div className='bg-[#F8F3B9] rounded-xl p-2 flex justify-center items-center gap-2'>
                       
                       <div className=''>
-                       <span className='flex flex-col justify-center items-center'> <i class="fa-solid fa-circle-question"></i></span>
+                       {/* <span className='flex flex-col justify-center items-center'> 
+
+                        <i class="fa-solid fa-circle-question"></i></span> */}
+                        
                       <h2>In-Progress</h2>
                       </div>
                     </div>
@@ -82,7 +88,7 @@ const Customer = ({singleData,InProgress,setInProgress,rightArea,setRightArea}) 
                     
                 </div>
                 <div className='flex justify-around items-center gap-2'>
-                    <i class="fa-solid fa-calendar"></i>
+                    {/* <i class="fa-solid fa-calendar"></i> */}
                 <p className='text-gray-600 font-bold'>{singleData.createdAt}</p>
                 </div>
             </div>

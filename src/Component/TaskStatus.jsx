@@ -20,7 +20,7 @@ const TaskStatus = ({rightArea,resolve,setResolve,InProgress,setInProgress,PassF
             return;
         }
         setInProgress(InProgress-1);
-        toast.success("task has been completed");
+        toast("task has been completed");
         PassFunction(dd); 
 
         
@@ -43,7 +43,7 @@ const TaskStatus = ({rightArea,resolve,setResolve,InProgress,setInProgress,PassF
               <button
                 onClick={() => {
                   handleresolve(displayData);
-                  
+                  alert('Task has Completed')
                   displayData={displayData};
                   
                 }}
@@ -66,13 +66,16 @@ const TaskStatus = ({rightArea,resolve,setResolve,InProgress,setInProgress,PassF
               <i className='fa-solid fa-check'></i> Solved the Problem
             </p>
             <span onClick={() => handleTrash(data)}>
-              <i className='fa-solid fa-trash'></i>
+              <i className="fa-solid fa-trash"></i>
+              
+              
+
             </span>
           </div>
         </div>
       ))
     ) : (
-      <p className='text-center font-bold my-5'>Practise & Send us Problems</p>
+      <p className='text-center font-bold my-5'>Practise & Send us Problems</p> 
     )}
   </>
 
